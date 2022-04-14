@@ -1,0 +1,14 @@
+{
+  "name": "minecraftquery",
+  "version": "1.0.0",
+  "description": "查询Minecraft信息",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Curtion",
+  "license": "MIT",
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.20.2",
+    "eslint": "^8.13.0",
+    "typescript": "^4.6.3"
+  }
+}
