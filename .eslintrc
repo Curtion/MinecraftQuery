@@ -9,7 +9,8 @@
       "error",
       "1tbs"
     ],
-    "@typescript-eslint/brace-style": ["error", "1tbs"]
+    "@typescript-eslint/brace-style": ["error", "1tbs"],
+    "no-console": "off"
   },
   "env": {
     "vue/setup-compiler-macros": true
