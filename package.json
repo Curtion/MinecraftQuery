@@ -4,10 +4,11 @@
   "description": "查询Minecraft信息",
   "main": "index.ts",
   "scripts": {
+    "start": "node ./dist/index.mjs",
     "build": "rimraf dist && unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint ./src",
-    "start": "esno src/index.ts"
+    "serve": "esno src/index.ts"
   },
   "author": "Curtion",
   "license": "MIT",
