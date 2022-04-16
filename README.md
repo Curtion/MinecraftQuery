@@ -1,9 +1,9 @@
 # 说明
 查询Minecraft服务器信息，无需登录
 
-# api
+# API
 
-GHT /?host=`hostname`&port=`port`
+GET /?host=`hostname`&port=`port`
 
 `hostname`可以为域名或者ip
 `port`为端口号
