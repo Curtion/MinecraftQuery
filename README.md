@@ -16,5 +16,6 @@ $Data = \pack( 'c', \strlen( $Data ) ) . $Data; // prepend length of packet ID +
 $Data = $Data . "\x01\x00";
 
 echo "13 00 04 0d 31 36 32 2e 31 34 2e 31 32 35 2e 39 34 63 dd 01 01 00 ";
+echo "13 00 04 0d 31 36 32 2e 31 34 2e 31 32 35 2e 39 34 63 c3 9d 01 01 00"
 echo bin2hex($Data);
 ```

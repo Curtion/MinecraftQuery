@@ -16,6 +16,7 @@
     "@types/koa": "^2.13.4",
     "@types/koa-bodyparser": "^4.3.7",
     "@types/koa-router": "^7.4.4",
+    "@types/varint": "^6.0.0",
     "eslint": "^8.13.0",
     "esno": "^0.14.1",
     "rimraf": "^3.0.2",
@@ -23,8 +24,11 @@
     "unbuild": "^0.7.4"
   },
   "dependencies": {
+    "domain-name-regex": "^2.0.0",
+    "ip-regex": "^5.0.0",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
-    "koa-router": "^10.1.1"
+    "koa-router": "^10.1.1",
+    "varint": "^6.0.0"
   }
 }
