@@ -65,6 +65,7 @@ router.get('/', async(ctx) => {
     })
     client.on('data', (data) => {
       if (CurrtData.length === 0) {
+        console.log('接收数据中...')
         totalLen = ReadVarInt(data)
         typeLen = ReadVarInt(data, totalLen.length)
         stringLen = ReadVarInt(data, totalLen.length + typeLen.length)
@@ -73,6 +74,7 @@ router.get('/', async(ctx) => {
         if (CurrtData.length !== totalLen.value + totalLen.length) {
           CurrtData = concat(CurrtData, data)
           if (CurrtData.length === totalLen.value + totalLen.length) {
+            console.log('接收接收完毕')
             try {
               ctx.body = JSON.parse(CurrtData.slice(totalLen.length + typeLen.length + stringLen.length).toString())
             } catch (e) {
@@ -81,6 +83,15 @@ router.get('/', async(ctx) => {
             client.destroy()
             resolve()
           }
+        } else {
+          console.log('接收接收完毕')
+          try {
+            ctx.body = JSON.parse(CurrtData.slice(totalLen.length + typeLen.length + stringLen.length).toString())
+          } catch (e) {
+            ctx.body = e
+          }
+          client.destroy()
+          resolve()
         }
       }
     })
