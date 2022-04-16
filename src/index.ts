@@ -61,6 +61,7 @@ router.get('/', async(ctx) => {
     client.on('connect', () => {
       console.log('TCP connection established with the server.')
       const buff = getQueryPack(host, +port)
+      console.log(buff.toString('hex'))
       client.write(buff)
     })
     client.on('data', (data) => {
