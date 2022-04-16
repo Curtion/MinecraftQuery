@@ -12,9 +12,6 @@ GET /?host=`hostname`&port=`port`
    - 如果port存在则通过A记录差选
    - 如果port不存在则通过SRV记录查询
 
-# Minecraft可用版本
-
-未知
 
 # 部署方式
 
