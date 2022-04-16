@@ -1,21 +1,24 @@
-``` php
-<?php
+# 说明
+查询Minecraft服务器信息，无需登录
 
-$ServerAddress = "162.14.125.94";
-$ServerPort = "25565";
+# api
 
-$Data = "\x00"; // packet ID = 0 (varint)
+GHT /?host=`hostname`&port=`port`
 
-$Data .= "\x04"; // Protocol version (varint)
-$Data .= \pack( 'c', \strlen( $ServerAddress ) ) . $ServerAddress; // Server (varint len + UTF-8 addr)
-$Data .= \pack( 'n', $ServerPort ); // Server port (unsigned short)
-$Data .= "\x01"; // Next state: status (varint)
+`hostname`可以为域名或者ip
+`port`为端口号
 
-$Data = \pack( 'c', \strlen( $Data ) ) . $Data; // prepend length of packet ID + data
+ - 如果`hostname`为ip则`port`不可为空
+ - 如果`hostname`为域名:
+   - port存在则通过A记录连接
+   - port不存在则通过SRV记录连接
 
-$Data = $Data . "\x01\x00";
+# 可用版本
 
-echo "13 00 04 0d 31 36 32 2e 31 34 2e 31 32 35 2e 39 34 63 dd 01 01 00 ";
-echo "13 00 04 0d 31 36 32 2e 31 34 2e 31 32 35 2e 39 34 63 c3 9d 01 01 00"
-echo bin2hex($Data);
-```
+未知
+
+# 部署方式
+
+ - `pnpm install`
+ - `pnpm build`
+ - `pnpm start`
