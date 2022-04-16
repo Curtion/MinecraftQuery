@@ -61,10 +61,10 @@ router.get('/', async(ctx) => {
     client.on('connect', () => {
       console.log('TCP connection established with the server.')
       const buff = getQueryPack(host, +port)
-      console.log(buff.toString('hex'))
       client.write(buff)
     })
     client.on('data', (data) => {
+      console.log('TCP data received from the server.')
       if (CurrtData.length === 0) {
         console.log('接收数据中...')
         totalLen = ReadVarInt(data)
