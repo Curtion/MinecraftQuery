@@ -71,6 +71,16 @@ router.get('/', async(ctx) => {
         typeLen = ReadVarInt(data, totalLen.length)
         stringLen = ReadVarInt(data, totalLen.length + typeLen.length)
         CurrtData = concat(CurrtData, data)
+        if (CurrtData.length === totalLen.value + totalLen.length) {
+          console.log('接收接收完毕')
+          try {
+            ctx.body = JSON.parse(CurrtData.slice(totalLen.length + typeLen.length + stringLen.length).toString())
+          } catch (e) {
+            ctx.body = e
+          }
+          client.destroy()
+          resolve()
+        }
       } else {
         if (CurrtData.length !== totalLen.value + totalLen.length) {
           CurrtData = concat(CurrtData, data)
