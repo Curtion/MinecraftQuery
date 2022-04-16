@@ -27,6 +27,12 @@ router.get('/', async(ctx) => {
     }
     return
   }
+  if (ipRegex({ exact: true }).test(host) && !port) {
+    ctx.body = {
+      error: 'port is required',
+    }
+    return
+  }
   if (!((ipRegex({ exact: true }).test(host) || domainNameRegex.test(host)) && ((Number(port) > 0 && Number(port) < 65536) || !port))) {
     ctx.body = {
       error: 'Invalid host or port',
